@@ -30,8 +30,11 @@
 {#if currentQuestion < data.questions.length}
 	{#each data.questions as question, index (question.question)}
 		{#if index === currentQuestion}
-			<p class="my-3">Question {index + 1} of {data.questions.length}</p>
-			<progress class="progress progress-primary w-56" value={currentQuestion + 1} max="10"
+			<p class="my-3">Question {currentQuestion + 1} of {data.questions.length}</p>
+			<progress
+				class="progress progress-primary w-full"
+				value={currentQuestion + 1}
+				max={data.questions.length}
 			></progress>
 			<h1 class="my-3">{question.question}</h1>
 			{#each question.options as option, index (option)}
